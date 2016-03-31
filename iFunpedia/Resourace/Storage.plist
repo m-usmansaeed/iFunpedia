@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Audio Books</key>
+	<dict>
+		<key>typeUrl</key>
+		<string>topaudiobooks</string>
+		<key>Top Audio Books</key>
+		<array>
+			<dict>
+				<key>typeCode</key>
+				<string></string>
+				<key>typeName</key>
+				<string>All</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000041</string>
+				<key>typeName</key>
+				<string>Art &amp; Entertainment</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000070</string>
+				<key>typeName</key>
+				<string>Audio Books Latino</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000042</string>
+				<key>typeName</key>
+				<string>Biography &amp; Memori</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000043</string>
+				<key>typeName</key>
+				<string>Business</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000045</string>
+				<key>typeName</key>
+				<string>Classics</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000046</string>
+				<key>typeName</key>
+				<string>Comedy</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000047</string>
+				<key>typeName</key>
+				<string>Drama &amp; Poetry</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000040</string>
+				<key>typeName</key>
+				<string>Fiction</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000049</string>
+				<key>typeName</key>
+				<string>History</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000044</string>
+				<key>typeName</key>
+				<string>Kids &amp; Young Adults</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000050</string>
+				<key>typeName</key>
+				<string>Languages</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000051</string>
+				<key>typeName</key>
+				<string>Mystery</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>74</string>
+				<key>typeName</key>
+				<string>News</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000052</string>
+				<key>typeName</key>
+				<string>Nonfiction</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>75</string>
+				<key>typeName</key>
+				<string>Programs &amp; Performances</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000053</string>
+				<key>typeName</key>
+				<string>Religion &amp; Spirtuality</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000069</string>
+				<key>typeName</key>
+				<string>Romance</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000055</string>
+				<key>typeName</key>
+				<string>Sci Fi &amp; Fantasy</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000054</string>
+				<key>typeName</key>
+				<string>Science</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000056</string>
+				<key>typeName</key>
+				<string>Self Development</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000048</string>
+				<key>typeName</key>
+				<string>Speakers &amp; Storytellers</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000057</string>
+				<key>typeName</key>
+				<string>Sports</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000058</string>
+				<key>typeName</key>
+				<string>Technology</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string>50000059</string>
+				<key>typeName</key>
+				<string>Travel &amp; Adventure</string>
+			</dict>
+			<dict>
+				<key>typeCode</key>
+				<string></string>
+				<key>typeName</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>

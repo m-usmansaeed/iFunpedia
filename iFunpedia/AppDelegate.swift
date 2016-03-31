@@ -1,23 +1,50 @@
 //
 //  AppDelegate.swift
-//  iFunpedia
+//  Funpedia
 //
-//  Created by M Usman Saeed on 31/03/2016.
+//  Created by M Usman Saeed on 29/03/2016.
 //  Copyright © 2016 Soarlabs. All rights reserved.
 //
 
 import UIKit
 
+var reachability : Reachability?
+var reachabilityStatus = "The Internet connection appears to be offline."
+var storageData :Dict = Dict()
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var isInternetAvailable:Reachability?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        
+        do {
+            isInternetAvailable = try Reachability.reachabilityForInternetConnection()
+        } catch {
+//            print("Unable to create Reachability")
+        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: isInternetAvailable)
+        do{
+            try isInternetAvailable?.startNotifier()
+        }catch{
+//            print("could not start reachability notifier")
+        }
+
+
+        
+        storageData = CommonFunctions.loadPlistFromProject("Storage")!
+        
+        
+//        print(storageData)
+        
+            
         return true
     }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -38,9 +65,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        reachability!.stopNotifier()
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+                                                            name: ReachabilityChangedNotification,
+                                                            object: reachability)
     }
-
-
+    
+    func reachabilityChanged(note: NSNotification) {
+        reachability = note.object as? Reachability
+        statusChangedWithReachability(reachability!)
+    }
+    
+    func statusChangedWithReachability(currentReachabilityState:Reachability) {
+     
+        currentReachabilityState.currentReachabilityStatus
+        print(currentReachabilityState.currentReachabilityString)
+        
+        if currentReachabilityState.currentReachabilityString != reachabilityStatus {
+            reachabilityStatus = currentReachabilityState.currentReachabilityString
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("ReachabilityStatusChanged", object: nil)
+    }
+    
 }
 
