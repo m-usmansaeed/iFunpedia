@@ -22,18 +22,11 @@ class GenreViewController: UIViewController,UITableViewDataSource,UITableViewDel
         
         genres =  (typeDict["genres"] as? AnyArray)!
         typeUrl = (typeDict["typeUrl"] as? String)!
-       
-        print(typeUrl)
-        
-        
-        
-        
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK: UITableViewDataSource
@@ -60,11 +53,11 @@ class GenreViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     
-         // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         let selectedIndex = self.tableView.indexPathForCell(sender as! UITableViewCell)!
         let genre:Dict = genres[selectedIndex.row] as! Dict
         
@@ -72,8 +65,16 @@ class GenreViewController: UIViewController,UITableViewDataSource,UITableViewDel
             let vc = segue.destinationViewController as! FeedViewController
             vc.genre = genre
             vc.typeUrl = typeUrl
-
+            
         }
-     }
+    }
+    
+    @IBAction func btnBack(sender: AnyObject) {
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        
+    }
+    
+    
     
 }

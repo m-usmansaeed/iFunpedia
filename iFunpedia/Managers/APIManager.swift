@@ -36,12 +36,12 @@ class APIManager:NSObject {
         
         var url:String
         if typeName == "" {
-            url = "https://itunes.apple.com/\(countryCode)/rss/\(typeUrl)/limit=10/json"
+            url = "https://itunes.apple.com/\(countryCode)/rss/\(typeUrl)/limit=2/json"
         }else{
-            url = "https://itunes.apple.com/\(countryCode)/rss/\(typeUrl)/limit=10/genre=\(typeCode)/json"
+            url = "https://itunes.apple.com/\(countryCode)/rss/\(typeUrl)/limit=2/genre=\(typeCode)/json"
         }
         
-        print(url)
+//        print(url)
         
         
         Alamofire.request(.GET, url).validate()

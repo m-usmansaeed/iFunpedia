@@ -17,8 +17,6 @@ class MediaViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     var mediaArray:AnyArray = AnyArray()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,7 +77,7 @@ class MediaViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         let selectedIndex = self.tableView.indexPathForCell(sender as! UITableViewCell)!
         let media:Dict = mediaArray[selectedIndex.row] as! Dict
-
+        
         if segue.identifier == "type" {
             
             let vc = segue.destinationViewController as! TypesViewController

@@ -59,4 +59,12 @@ class TypesViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
 
     
+    @IBAction func btnBack(sender: AnyObject) {
+    
+        self.navigationController?.popViewControllerAnimated(true)
+    
+    }
+    
+    
+    
 }
