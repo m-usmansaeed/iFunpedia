@@ -9,27 +9,23 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController,APIManagerDelegate {
+
+class MediaViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableview: UITableView!
-    let apiManager:APIManager = APIManager()
+    
+    var mediaArray:AnyArray = AnyArray()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let countryCode = NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as! String
-        print(countryCode)
-        
-        apiManager.delegate = self
-        apiManager.getAllBooks(["countryCode":countryCode])
-        
+        mediaArray =  storageData["Media"] as! AnyArray
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: "ReachabilityStatusChanged", object: nil)
         
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     func reachabilityChanged(note: NSNotification) {
@@ -52,13 +48,8 @@ class ViewController: UIViewController,APIManagerDelegate {
         }
     }
     
-    
-    func didGetAllAudioBooksSuccess(manager: APIManager) {
-        print(manager.data!)
-    }
-    
-    func didFailedToGetAllBooks(manager: APIManager) {
-        print(manager.err!.localizedDescription)
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     //MARK: UITableViewDataSource
@@ -68,7 +59,7 @@ class ViewController: UIViewController,APIManagerDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return mediaArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -79,26 +70,21 @@ class ViewController: UIViewController,APIManagerDelegate {
     
     func configureCell(cell: UITableViewCell, forRowAtIndexPath: NSIndexPath) {
         
-        cell.textLabel?.text = "Audio Books"
+        let media:Dict = mediaArray[forRowAtIndexPath.row] as! Dict
+        
+        cell.textLabel?.text = media["mediaName"] as? String
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        let selectedIndex = self.tableView.indexPathForCell(sender as! UITableViewCell)!
+        let media:Dict = mediaArray[selectedIndex.row] as! Dict
+
         if segue.identifier == "type" {
             
+            let vc = segue.destinationViewController as! TypesViewController
+            vc.types = media["types"] as! AnyArray
         }
-    }
-    
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        
-        let cell:UITableViewCell = sender as! UITableViewCell
-        let indexPath:NSIndexPath = self.tableview.indexPathForCell(cell)!
-        if indexPath.row == 0 {
-            return false
-        }
-        return true
     }
     
 }

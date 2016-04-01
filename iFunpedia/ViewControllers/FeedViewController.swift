@@ -8,17 +8,60 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController,APIManagerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var feed:AnyArray = AnyArray()
-    
+    var genre:Dict = Dict()
+    var typeUrl:String = ""
+
+    let apiManager:APIManager = APIManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: "ReachabilityStatusChanged", object: nil)
+        
+        self.reachabilityChanged(nil)
+        
+                let countryCode = NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as! String
+                print(countryCode)
+        
+        genre["typeUrl"] = typeUrl
+        genre["countryCode"] = countryCode
+        
+        print(genre)
+        print(typeUrl)
+
+        
+                apiManager.delegate = self
+                apiManager.getAllBooks(genre)
+        
     }
+    
+    func reachabilityChanged(note: NSNotification?) {
+        
+        switch reachabilityStatus {
+        case "Cellular":
+            print(reachabilityStatus)
+//            CommonFunctions.showStatus(UIColor.greenColor())
+            
+        case "WiFi":
+            print(reachabilityStatus)
+//            CommonFunctions.showStatus(UIColor.greenColor())
+            
+        case "No Connection":
+            print(reachabilityStatus)
+            CommonFunctions.showStatus(UIColor.redColor())
+        default:
+            print(reachabilityStatus)
+            
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,6 +87,16 @@ class FeedViewController: UIViewController {
     func configureCell(cell: UITableViewCell, forRowAtIndexPath: NSIndexPath) {
         
     }
+    
+    
+    func didGetAllAudioBooksSuccess(manager: APIManager) {
+        print(manager.data!)
+    }
+    
+    func didFailedToGetAllBooks(manager: APIManager) {
+        print(manager.err!.localizedDescription)
+    }
+
     
 
     /*

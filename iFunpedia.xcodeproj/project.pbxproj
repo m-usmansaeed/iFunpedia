@@ -19,8 +19,10 @@
 		D6478DD21CAD92A2003438AC /* Storage.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6478DC81CAD92A2003438AC /* Storage.plist */; };
 		D6478DD31CAD92A2003438AC /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6478DCA1CAD92A2003438AC /* FeedViewController.swift */; };
 		D6478DD41CAD92A2003438AC /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6478DCB1CAD92A2003438AC /* TypesViewController.swift */; };
-		D6478DD51CAD92A2003438AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6478DCC1CAD92A2003438AC /* ViewController.swift */; };
+		D6478DD51CAD92A2003438AC /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6478DCC1CAD92A2003438AC /* MediaViewController.swift */; };
 		D6478DD91CAD99A6003438AC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D6478DD81CAD99A6003438AC /* LICENSE */; };
+		D6478DDC1CAD9D24003438AC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6478DDB1CAD9D24003438AC /* background.png */; };
+		D6478DE01CADA622003438AC /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6478DDF1CADA622003438AC /* GenreViewController.swift */; };
 		DC2AC5BB33D7A20F58773EC4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4434E33D0DC26B5C886B73AF /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +43,10 @@
 		D6478DC81CAD92A2003438AC /* Storage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Storage.plist; sourceTree = "<group>"; };
 		D6478DCA1CAD92A2003438AC /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		D6478DCB1CAD92A2003438AC /* TypesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
-		D6478DCC1CAD92A2003438AC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D6478DCC1CAD92A2003438AC /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		D6478DD81CAD99A6003438AC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D6478DDB1CAD9D24003438AC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		D6478DDF1CADA622003438AC /* GenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
 		F9362E589981C0B9F906662C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,18 +101,16 @@
 		D6478DAA1CAD8BE2003438AC /* iFunpedia */ = {
 			isa = PBXGroup;
 			children = (
-				D6478DBD1CAD92A2003438AC /* AppConstants */,
+				D6478DC51CAD92A2003438AC /* Models */,
+				D6478DC91CAD92A2003438AC /* ViewControllers */,
 				D6478DBF1CAD92A2003438AC /* CommonFunctions */,
 				D6478DC11CAD92A2003438AC /* Libs */,
 				D6478DC31CAD92A2003438AC /* Managers */,
-				D6478DC51CAD92A2003438AC /* Models */,
+				D6478DBD1CAD92A2003438AC /* AppConstants */,
 				D6478DC71CAD92A2003438AC /* Resourace */,
-				D6478DC91CAD92A2003438AC /* ViewControllers */,
-				D6478DAB1CAD8BE2003438AC /* AppDelegate.swift */,
+				D6478DDA1CAD9BDB003438AC /* Supporting Files */,
 				D6478DAF1CAD8BE2003438AC /* Main.storyboard */,
-				D6478DB21CAD8BE2003438AC /* Assets.xcassets */,
 				D6478DB41CAD8BE2003438AC /* LaunchScreen.storyboard */,
-				D6478DB71CAD8BE2003438AC /* Info.plist */,
 			);
 			path = iFunpedia;
 			sourceTree = "<group>";
@@ -156,6 +158,7 @@
 		D6478DC71CAD92A2003438AC /* Resourace */ = {
 			isa = PBXGroup;
 			children = (
+				D6478DDB1CAD9D24003438AC /* background.png */,
 				D6478DC81CAD92A2003438AC /* Storage.plist */,
 			);
 			path = Resourace;
@@ -164,11 +167,22 @@
 		D6478DC91CAD92A2003438AC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D6478DCA1CAD92A2003438AC /* FeedViewController.swift */,
+				D6478DCC1CAD92A2003438AC /* MediaViewController.swift */,
 				D6478DCB1CAD92A2003438AC /* TypesViewController.swift */,
-				D6478DCC1CAD92A2003438AC /* ViewController.swift */,
+				D6478DDF1CADA622003438AC /* GenreViewController.swift */,
+				D6478DCA1CAD92A2003438AC /* FeedViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D6478DDA1CAD9BDB003438AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6478DAB1CAD8BE2003438AC /* AppDelegate.swift */,
+				D6478DB21CAD8BE2003438AC /* Assets.xcassets */,
+				D6478DB71CAD8BE2003438AC /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6478DD21CAD92A2003438AC /* Storage.plist in Resources */,
+				D6478DDC1CAD9D24003438AC /* background.png in Resources */,
 				D6478DB61CAD8BE2003438AC /* LaunchScreen.storyboard in Resources */,
 				D6478DB31CAD8BE2003438AC /* Assets.xcassets in Resources */,
 				D6478DB11CAD8BE2003438AC /* Main.storyboard in Resources */,
@@ -295,12 +310,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6478DD51CAD92A2003438AC /* ViewController.swift in Sources */,
+				D6478DD51CAD92A2003438AC /* MediaViewController.swift in Sources */,
 				D6478DD01CAD92A2003438AC /* APIManager.swift in Sources */,
 				D6478DAC1CAD8BE2003438AC /* AppDelegate.swift in Sources */,
 				D6478DD11CAD92A2003438AC /* MFeed.swift in Sources */,
 				D6478DCE1CAD92A2003438AC /* CommonFunctions.swift in Sources */,
 				D6478DCF1CAD92A2003438AC /* Reachability.swift in Sources */,
+				D6478DE01CADA622003438AC /* GenreViewController.swift in Sources */,
 				D6478DD31CAD92A2003438AC /* FeedViewController.swift in Sources */,
 				D6478DCD1CAD92A2003438AC /* Contants.swift in Sources */,
 				D6478DD41CAD92A2003438AC /* TypesViewController.swift in Sources */,
